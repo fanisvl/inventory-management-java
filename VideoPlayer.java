@@ -1,11 +1,14 @@
 public class VideoPlayer extends ImageSound{
 
-    public static final ProductModel[] models = {ProductModel.BLURAY,
-            ProductModel.DVD};
-
     enum VideoPlayerModels {
         BLUERAY,
         DVD
+    }
+
+    enum PlaybackFormat {
+        BDR,
+        BDRD,
+        DVDRW
     }
 
     private VideoPlayerModels model;
