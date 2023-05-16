@@ -31,16 +31,22 @@ public class Main {
         GamingConsole ps5 = new GamingConsole(2, GamingConsole.GamingConsoleModels.PS5, "d68",
                 2020, "Sony", 699, 5, "Intel", "NVIDIA",
                 "Surround", "3TB");
+        availableProducts.add(ps4);
+        availableProducts.add(ps5);
         // Create & add fridges
         Fridge twodoor = new Fridge(10, Fridge.FridgeModels.TWODOOR, "e22", 2019,
                 "Bosch", 599, 10, "A", "10kg", "5kg");
         Fridge onedoor = new Fridge(10, Fridge.FridgeModels.ONEDOOR, "e12", 2019,
                 "Bosch", 499, 10, "A", "10kg", "5kg");
+        availableProducts.add(twodoor);
+        availableProducts.add(onedoor);
         // Create & add Washers
         Washer washer = new Washer(14, Washer.WasherModels.STANDARD, "f42", 2019,
                 "LG", 199, 10, "A", "10kg", "150");
         Washer washer2 = new Washer(4, Washer.WasherModels.STANDARD, "f99", 2021,
                 "LG", 399, 10, "A", "30kg", "300");
+        availableProducts.add(washer);
+        availableProducts.add(washer2);
 
     }
 }

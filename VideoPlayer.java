@@ -33,7 +33,7 @@ public class VideoPlayer extends ImageSound{
         return resolution;
     }
 
-    public String getPlaybackFormat() {
+    public PlaybackFormat getPlaybackFormat() {
         return playbackFormat;
     }
     // SETTERS
