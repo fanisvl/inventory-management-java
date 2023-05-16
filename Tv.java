@@ -1,18 +1,24 @@
 public class Tv extends ImageSound{
-    public static final ProductModel[] models = {ProductModel.LCD,
-                                                ProductModel.LED,
-                                                ProductModel.PLASMA};
+
+    enum TvModels {
+        LCD,
+        LED,
+        PLASMA
+    }
     enum TvPorts{
         HDMI,
         DVI,
         Composite
     }
+
+    private TvModels model;
     private String dimensions;
     private String resolution;
     private TvPorts ports;
 
-    public Tv(int availablePieces, ProductModel productModel, String id, int modelYear, String manufacturer, double price, double discount, String dimensions, String resolution, TvPorts ports) {
-        super(availablePieces, productModel, id, modelYear, manufacturer, price, discount);
+    public Tv(int availablePieces, TvModels tvModel, String id, int modelYear, String manufacturer, double price, double discount, String dimensions, String resolution, TvPorts ports) {
+        super(availablePieces, id, modelYear, manufacturer, price, discount);
+        this.model = tvModel;
         this.dimensions = dimensions;
         this.resolution = resolution;
         this.ports = ports;

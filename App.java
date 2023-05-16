@@ -7,9 +7,10 @@ public class App {
         // (fulfills requirement of at least models 2 of every type
         // (?) Washer has only one model??? Different energyClass, capacity or rpm count as different models?)
         // Maybe replace with manual creation of Model objects
-        for(ProductModel model : ProductModel.values()) {
-            availableProducts.put(model, new Product(30, model));
-        }
+
+//        for(ProductModel model : ProductModel.values()) {
+//            availableProducts.put(model, new Product(30, model));
+//        }
 
         System.out.println(availableProducts);
 
