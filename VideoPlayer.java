@@ -20,6 +20,12 @@ public class VideoPlayer extends ImageSound{
     }
 
     // GETTERS
+
+
+    public VideoPlayerModels getModel() {
+        return model;
+    }
+
     public String getResolution() {
         return resolution;
     }
@@ -28,6 +34,12 @@ public class VideoPlayer extends ImageSound{
         return playbackFormat;
     }
     // SETTERS
+
+
+    public void setModel(VideoPlayerModels model) {
+        this.model = model;
+    }
+
     public void setResolution(String resolution) {
         this.resolution = resolution;
     }

@@ -14,9 +14,9 @@ public class App {
 
         System.out.println(availableProducts);
 
-        for(ProductModel model : GamingConsole.models) {
-            System.out.println(model);
-            System.out.println(availableProducts.get(model).getAvailablePieces());
-        }
+//        for(ProductModel model : GamingConsole.models) {
+//            System.out.println(model);
+//            System.out.println(availableProducts.get(model).getAvailablePieces());
+//        }
     }
 }

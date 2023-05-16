@@ -22,6 +22,11 @@ public class Camera extends ImageSound{
 
     // GETTERS
 
+
+    public CameraModels getModel() {
+        return model;
+    }
+
     public String getMegaPixel() {
         return megaPixel;
     }
@@ -39,6 +44,12 @@ public class Camera extends ImageSound{
     }
 
     // SETTERS
+
+
+    public void setModel(CameraModels model) {
+        this.model = model;
+    }
+
     public void setMegaPixel(String megaPixel) {
         this.megaPixel = megaPixel;
     }

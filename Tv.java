@@ -25,6 +25,12 @@ public class Tv extends ImageSound{
     }
 
     // GETTERS
+
+
+    public TvModels getModel() {
+        return model;
+    }
+
     public String getDimensions() {
         return dimensions;
     }
@@ -38,6 +44,12 @@ public class Tv extends ImageSound{
     }
 
     // SETTERS
+
+
+    public void setModel(TvModels model) {
+        this.model = model;
+    }
+
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
     }
