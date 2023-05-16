@@ -13,9 +13,9 @@ public class VideoPlayer extends ImageSound{
 
     private VideoPlayerModels model;
     private String resolution;
-    private String playbackFormat;
+    private PlaybackFormat playbackFormat;
 
-    public VideoPlayer(int availablePieces, VideoPlayerModels videoPlayerModel, String id, int modelYear, String manufacturer, double price, double discount, String resolution, String playbackFormat) {
+    public VideoPlayer(int availablePieces, VideoPlayerModels videoPlayerModel, String id, int modelYear, String manufacturer, double price, double discount, String resolution, PlaybackFormat playbackFormat) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
         this.model = videoPlayerModel;
         this.resolution = resolution;

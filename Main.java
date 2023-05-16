@@ -12,6 +12,11 @@ public class Main {
         availableProducts.add(lcd_tv);
         availableProducts.add(led_tv);
         // Create & add VideoPlayers
-
+        VideoPlayer bluray = new VideoPlayer(5, VideoPlayer.VideoPlayerModels.BLUERAY, "b32",
+                2014, "Sony", 49.99, 50, "1080p", VideoPlayer.PlaybackFormat.BDR);
+        VideoPlayer dvd = new VideoPlayer(5, VideoPlayer.VideoPlayerModels.DVD, "b32",
+                2014, "Sony", 49.99, 50, "1080p", VideoPlayer.PlaybackFormat.DVDRW);
+        availableProducts.add(bluray);
+        availableProducts.add(dvd);
     }
 }
