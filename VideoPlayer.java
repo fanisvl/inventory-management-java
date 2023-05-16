@@ -47,7 +47,7 @@ public class VideoPlayer extends ImageSound{
         this.resolution = resolution;
     }
 
-    public void setPlaybackFormat(String playbackFormat) {
+    public void setPlaybackFormat(PlaybackFormat playbackFormat) {
         this.playbackFormat = playbackFormat;
     }
 }
