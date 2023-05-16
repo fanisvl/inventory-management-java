@@ -6,9 +6,9 @@ public class Washer extends HomeAppliance {
     private String capacity;
     private String rotations;
 
-    public Washer(int availablePieces, WasherModels model, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
+    public Washer(int availablePieces, WasherModels washerModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
         super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
-        this.model = model;
+        this.model = washerModel;
         this.capacity = capacity;
         this.rotations = rotations;
     }
