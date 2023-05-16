@@ -45,7 +45,6 @@ public class Camera extends ImageSound{
 
     // SETTERS
 
-
     public void setModel(CameraModels model) {
         this.model = model;
     }

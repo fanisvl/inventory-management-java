@@ -1,10 +1,14 @@
 public class Washer extends HomeAppliance {
+    enum WasherModels {
+        STANDARD
+    }
+    private WasherModels model;
     private String capacity;
     private String rotations;
-    private ProductModel model = ProductModel.STANDARD;
 
-    public Washer(int availablePieces, ProductModel productModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
-        super(availablePieces, productModel, id, modelYear, manufacturer, price, discount, energyClass);
+    public Washer(int availablePieces, WasherModels model, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
+        super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
+        this.model = model;
         this.capacity = capacity;
         this.rotations = rotations;
     }
@@ -18,7 +22,7 @@ public class Washer extends HomeAppliance {
         return rotations;
     }
 
-    public ProductModel getModel() {
+    public WasherModels getModel() {
         return model;
     }
 
@@ -31,7 +35,7 @@ public class Washer extends HomeAppliance {
         this.rotations = rotations;
     }
 
-    public void setModel(ProductModel model) {
+    public void setModel(WasherModels model) {
         this.model = model;
     }
 }
