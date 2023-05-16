@@ -17,5 +17,20 @@ public class Main {
                 2014, "Sony", 49.99, 50, "1080p", VideoPlayer.PlaybackFormat.DVDRW);
         availableProducts.add(bluray);
         availableProducts.add(dvd);
+        // Create & add Cameras
+        Camera dslr = new Camera(3, Camera.CameraModels.DSLR, "c1", 2020, "Sony",
+                699, 5, "20mp", true, true, "10'");
+        Camera action = new Camera(6, Camera.CameraModels.ACTION, "c321", 2019, "GoPro",
+                299, 15, "5mp", true, true, "10'");
+        availableProducts.add(dslr);
+        availableProducts.add(action);
+        // Create & add Gaming Consoles
+        GamingConsole ps4 = new GamingConsole(5, GamingConsole.GamingConsoleModels.PS4, "d64",
+                2012, "Sony", 199, 40, "Intel", "NVIDIA",
+                "Surround", "1TB");
+        GamingConsole ps5 = new GamingConsole(2, GamingConsole.GamingConsoleModels.PS5, "d68",
+                2020, "Sony", 699, 5, "Intel", "NVIDIA",
+                "Surround", "3TB");
+
     }
 }
