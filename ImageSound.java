@@ -1,9 +1,10 @@
 public class ImageSound extends Product{
-
     private double discount;
+    protected int category = 1;
 
     public ImageSound(int availablePieces, String id, int modelYear, String manufacturer, double price, double discount) {
         super(availablePieces, id, modelYear, manufacturer, price);
+        super.category = category;
         this.discount = discount;
     }
 

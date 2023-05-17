@@ -11,6 +11,8 @@ public class Tv extends ImageSound{
         Composite
     }
 
+    protected final String type = "TV";
+
     private TvModels model;
     private String dimensions;
     private String resolution;
@@ -18,6 +20,7 @@ public class Tv extends ImageSound{
 
     public Tv(int availablePieces, TvModels tvModel, String id, int modelYear, String manufacturer, double price, double discount, String dimensions, String resolution, TvPorts ports) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
+        super.type = type;
         this.model = tvModel;
         this.dimensions = dimensions;
         this.resolution = resolution;
@@ -35,7 +38,6 @@ public class Tv extends ImageSound{
     }
 
     // GETTERS
-
 
     public TvModels getModel() {
         return model;

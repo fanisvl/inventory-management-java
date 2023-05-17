@@ -11,12 +11,16 @@ public class VideoPlayer extends ImageSound{
         DVDRW
     }
 
+    protected final String type = "Video Players";
     private VideoPlayerModels model;
     private String resolution;
     private PlaybackFormat playbackFormat;
 
-    public VideoPlayer(int availablePieces, VideoPlayerModels videoPlayerModel, String id, int modelYear, String manufacturer, double price, double discount, String resolution, PlaybackFormat playbackFormat) {
+    public VideoPlayer(int availablePieces, VideoPlayerModels videoPlayerModel, String id, int modelYear,
+                       String manufacturer, double price, double discount, String resolution,
+                       PlaybackFormat playbackFormat) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
+        super.type = type;
         this.model = videoPlayerModel;
         this.resolution = resolution;
         this.playbackFormat = playbackFormat;
@@ -32,8 +36,6 @@ public class VideoPlayer extends ImageSound{
     }
 
     // GETTERS
-
-
     public VideoPlayerModels getModel() {
         return model;
     }

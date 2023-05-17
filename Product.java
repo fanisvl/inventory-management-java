@@ -1,14 +1,19 @@
 public class Product {
 
-    // Only for availableProducts collection
-    private int availablePieces = 0;
+    // Category and type
+
+    protected int category;
+    protected String type;
 
     // General Fields
+
+    private int availablePieces = 0;
     private String id;
     private int modelYear;
     private String manufacturer;
     private double price;
 
+    // for quick testing
     public Product(int availablePieces) {
         this(availablePieces,  "123", 2017, "LG", 399.99);
     }
@@ -34,6 +39,15 @@ public class Product {
 
     // GETTERS
 
+
+    public int getCategory() {
+        return category;
+    }
+
+    public int getType() {
+        return type;
+    }
+
     public int getAvailablePieces() {
         return availablePieces;
     }
@@ -55,6 +69,15 @@ public class Product {
 
     // SETTERS
 
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public void setAvailablePieces(int availablePieces) {
         this.availablePieces = availablePieces;
     }
@@ -73,4 +96,5 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
 }
