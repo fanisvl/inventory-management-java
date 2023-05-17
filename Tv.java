@@ -24,6 +24,16 @@ public class Tv extends ImageSound{
         this.ports = ports;
     }
 
+    @Override
+    public String toString() {
+        return "Tv{" +
+                "model=" + model +
+                ", dimensions='" + dimensions + '\'' +
+                ", resolution='" + resolution + '\'' +
+                ", ports=" + ports +
+                '}';
+    }
+
     // GETTERS
 
 

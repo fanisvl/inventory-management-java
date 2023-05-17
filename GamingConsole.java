@@ -22,7 +22,19 @@ public class GamingConsole extends Product{
         this.storage = storage;
     }
 
-// GETTERS
+    @Override
+    public String toString() {
+        return "GamingConsole{" +
+                "model=" + model +
+                ", discount=" + discount +
+                ", processor='" + processor + '\'' +
+                ", graphics='" + graphics + '\'' +
+                ", sound='" + sound + '\'' +
+                ", storage='" + storage + '\'' +
+                '}';
+    }
+
+    // GETTERS
     public GamingConsoleModels getModel() {
         return model;
     }

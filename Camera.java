@@ -20,6 +20,17 @@ public class Camera extends ImageSound{
         this.screenSize = screenSize;
     }
 
+    @Override
+    public String toString() {
+        return "Camera{" +
+                "model=" + model +
+                ", megaPixel='" + megaPixel + '\'' +
+                ", opticalZoom=" + opticalZoom +
+                ", digitalZoom=" + digitalZoom +
+                ", screenSize='" + screenSize + '\'' +
+                '}';
+    }
+
     // GETTERS
 
 

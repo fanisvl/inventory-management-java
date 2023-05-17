@@ -8,6 +8,14 @@ public class HomeAppliance extends Product {
         this.energyClass = energyClass;
     }
 
+    @Override
+    public String toString() {
+        return "HomeAppliance{" +
+                "discount=" + discount +
+                ", energyClass='" + energyClass + '\'' +
+                '}';
+    }
+
     // GETTERS
     public double getDiscount() {
         return discount;

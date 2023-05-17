@@ -22,6 +22,15 @@ public class VideoPlayer extends ImageSound{
         this.playbackFormat = playbackFormat;
     }
 
+    @Override
+    public String toString() {
+        return "VideoPlayer{" +
+                "model=" + model +
+                ", resolution='" + resolution + '\'' +
+                ", playbackFormat=" + playbackFormat +
+                '}';
+    }
+
     // GETTERS
 
 

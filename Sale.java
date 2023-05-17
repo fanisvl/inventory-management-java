@@ -12,6 +12,14 @@ public class Sale extends Order {
         this.saleId = nextSaleId++;
     }
 
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "saleId=" + saleId +
+                ", saleDate='" + saleDate + '\'' +
+                '}';
+    }
+
     private String saleDate;
     public int getSaleId() {
         return saleId;

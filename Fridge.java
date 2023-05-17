@@ -16,7 +16,16 @@ public class Fridge extends HomeAppliance {
         this.freezerStorage = freezerStorage;
     }
 
-// GETTERS
+    @Override
+    public String toString() {
+        return "Fridge{" +
+                "model=" + model +
+                ", maintenanceStorage='" + maintenanceStorage + '\'' +
+                ", freezerStorage='" + freezerStorage + '\'' +
+                '}';
+    }
+
+    // GETTERS
 
 
     public FridgeModels getModel() {

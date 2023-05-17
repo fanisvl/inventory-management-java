@@ -12,8 +12,16 @@ public class Washer extends HomeAppliance {
         this.capacity = capacity;
         this.rotations = rotations;
     }
+    @Override
+    public String toString() {
+        return "Washer{" +
+                "model=" + model +
+                ", capacity='" + capacity + '\'' +
+                ", rotations='" + rotations + '\'' +
+                '}';
+    }
 
-// GETTERS
+    // GETTERS
     public String getCapacity() {
         return capacity;
     }

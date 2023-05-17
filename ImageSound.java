@@ -7,6 +7,13 @@ public class ImageSound extends Product{
         this.discount = discount;
     }
 
+    @Override
+    public String toString() {
+        return "ImageSound{" +
+                "discount=" + discount +
+                '}';
+    }
+
     public double getDiscount() {
         return discount;
     }

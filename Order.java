@@ -22,6 +22,20 @@ public class Order {
         this.orderExecuted = orderExecuted;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", item=" + item +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", arrivalDate='" + arrivalDate + '\'' +
+                ", cost=" + cost +
+                ", orderExecuted=" + orderExecuted +
+                '}';
+    }
+
     // GET
     public int getOrderId() {
         return orderId;

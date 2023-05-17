@@ -21,6 +21,17 @@ public class Product {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "availablePieces=" + availablePieces +
+                ", id='" + id + '\'' +
+                ", modelYear=" + modelYear +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     // GETTERS
 
     public int getAvailablePieces() {
