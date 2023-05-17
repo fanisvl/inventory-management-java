@@ -1,9 +1,45 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         initAvailableProducts();
-        // TODO MENU
+        ArrayList<Order> orders = new ArrayList<>();
+        ArrayList<Sale> sales = new ArrayList<>();
+        // MENU
+        Scanner input = new Scanner(System.in);
+        int choice;
+        while (true) {
+            System.out.println("\n Inventory App\n");
+            System.out.println("1. Available Products");
+            System.out.println("2. Orders");
+            System.out.println("3. Sales");
+            System.out.println("0. Exit");
+            System.out.print("Enter Selection: ");
 
+            choice = input.nextInt();
+            input.nextLine();
+
+            switch(choice) {
+                case 1 -> {
+                    System.out.println("\nAVAILABLE PRODUCTS\n");
+
+                }
+                case 2 -> {
+                    System.out.println("ORDERS");
+                }
+                case 3 -> {
+                    System.out.println("SALES");
+                }
+                case 0 -> {
+                    System.out.println("EXIT");
+                }
+                default -> {
+                    System.out.println("Invalid Menu Option");
+                }
+            }
+
+        }
     }
     public static void initAvailableProducts() {
         // Creates availableProducts ArrayList & 2 models for each type, adds them to ArrayList
