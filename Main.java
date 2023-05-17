@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
+        initAvailableProducts();
+        // TODO MENU
+
+    }
+    public static void initAvailableProducts() {
+        // Creates availableProducts ArrayList & 2 models for each type, adds them to ArrayList
         ArrayList<Product> availableProducts = new ArrayList<>();
 
         // Create & add Tvs
@@ -47,6 +53,5 @@ public class Main {
                 "LG", 399, 10, "A", "30kg", "300");
         availableProducts.add(washer);
         availableProducts.add(washer2);
-
     }
 }
