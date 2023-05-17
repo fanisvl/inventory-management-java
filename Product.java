@@ -44,7 +44,7 @@ public class Product {
         return category;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 

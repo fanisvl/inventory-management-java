@@ -121,7 +121,7 @@ public class Main {
 //         Loop through new availableProducts, if type not in typeList add product type to list
 //         Print types
 //         Must add type field & getType to every model
-        ArrayList<String> types = new ArrayList<>();
+//        ArrayList<String> types = new ArrayList<>();
 //        for (Product product : availableProducts) {
 //            if (product.getType() != )
 //        }
