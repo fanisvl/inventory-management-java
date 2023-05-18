@@ -1,9 +1,9 @@
 public class Product {
 
     enum TypesOf {
-        IMAGESOUND,
-        GAMING,
-        HOMEAPPLIANCE
+        ImageSound,
+        Gaming,
+        HomeAppliances
     }
 
     private int availablePieces = 0;
@@ -25,15 +25,13 @@ public class Product {
         this.price = price;
     }
 
-    @Override
+
     public String toString() {
-        return "Product{" +
-                "availablePieces=" + availablePieces +
-                ", id='" + id + '\'' +
-                ", modelYear=" + modelYear +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", price=" + price +
-                '}';
+        return  "\nAvailable Pieces: " + availablePieces +
+                "\nId: " + id +
+                "\nModel Year: " + modelYear +
+                "\nManufacturer: " + manufacturer +
+                "\nPrice: " + price;
     }
 
     // GETTERS

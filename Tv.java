@@ -28,12 +28,11 @@ public class Tv extends ImageSound{
 
     @Override
     public String toString() {
-        return "Tv{" +
-                "model=" + model +
-                ", dimensions='" + dimensions + '\'' +
-                ", resolution='" + resolution + '\'' +
-                ", ports=" + ports +
-                '}';
+        return super.toString() +
+                "\nModel: " + model +
+                "\nDimensions: " + dimensions +
+                "\nResolution: " + resolution +
+                "\nPorts: " + ports;
     }
 
     // GETTERS

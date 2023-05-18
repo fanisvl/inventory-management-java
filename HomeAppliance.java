@@ -1,8 +1,8 @@
 public class HomeAppliance extends Product {
+    enum TypesOf{
+        Fridge,
+        Washer
 
-    enum HomeApplianceTypes {
-        FRIDGE,
-        WASHER
     }
     private double discount;
     private String energyClass;
@@ -16,10 +16,9 @@ public class HomeAppliance extends Product {
 
     @Override
     public String toString() {
-        return "HomeAppliance{" +
-                "discount=" + discount +
-                ", energyClass='" + energyClass + '\'' +
-                '}';
+        return super.toString() +
+                "\nDiscount: " + discount +
+                "\nEnergy Class: " + energyClass;
     }
 
     // GETTERS

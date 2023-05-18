@@ -1,14 +1,14 @@
 public class Fridge extends HomeAppliance {
 
-    enum FridgeModels {
+    enum TypesOf {
         ONEDOOR,
         TWODOOR
     }
-    private FridgeModels model;
+    private TypesOf model;
     private String maintenanceStorage;
     private String freezerStorage;
 
-    public Fridge(int availablePieces, FridgeModels fridgeModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String maintenanceStorage, String freezerStorage) {
+    public Fridge(int availablePieces, TypesOf fridgeModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String maintenanceStorage, String freezerStorage) {
         super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
         this.model = fridgeModel;
         this.maintenanceStorage = maintenanceStorage;
@@ -17,17 +17,16 @@ public class Fridge extends HomeAppliance {
 
     @Override
     public String toString() {
-        return "Fridge{" +
-                "model=" + model +
-                ", maintenanceStorage='" + maintenanceStorage + '\'' +
-                ", freezerStorage='" + freezerStorage + '\'' +
-                '}';
+        return super.toString() +
+                "\nModel: " + model +
+                "\nMaintenance Storage: " + maintenanceStorage +
+                "\nFreezerStorage: " + freezerStorage;
     }
 
     // GETTERS
 
 
-    public FridgeModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -40,7 +39,7 @@ public class Fridge extends HomeAppliance {
     }
 
     // SETTERS
-    public void setModel(FridgeModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 

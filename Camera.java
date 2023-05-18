@@ -1,18 +1,18 @@
 public class Camera extends ImageSound{
-    enum CameraModels {
+    enum TypesOf {
         COMPACT,
         DSLR,
         ACTION
     }
 
     private final String type = "Camera";
-    private CameraModels model;
+    private TypesOf model;
     private String megaPixel;
     private boolean opticalZoom;
     private boolean digitalZoom;
     private String screenSize;
 
-    public Camera(int availablePieces, CameraModels cameraModel, String id, int modelYear, String manufacturer, double price, double discount, String megaPixel, boolean opticalZoom, boolean digitalZoom, String screenSize) {
+    public Camera(int availablePieces, TypesOf cameraModel, String id, int modelYear, String manufacturer, double price, double discount, String megaPixel, boolean opticalZoom, boolean digitalZoom, String screenSize) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
         this.model = cameraModel;
         this.megaPixel = megaPixel;
@@ -23,18 +23,17 @@ public class Camera extends ImageSound{
 
     @Override
     public String toString() {
-        return "Camera{" +
-                "model=" + model +
-                ", megaPixel='" + megaPixel + '\'' +
-                ", opticalZoom=" + opticalZoom +
-                ", digitalZoom=" + digitalZoom +
-                ", screenSize='" + screenSize + '\'' +
-                '}';
+        return super.toString() +
+                "\nModel: " + model +
+                "\nMega Pixel: " + megaPixel +
+                "\nOptical Zoom: " + opticalZoom +
+                "\nDigital Zoom: " + digitalZoom +
+                "\nScreen Size: " + screenSize;
     }
 
     // GETTERS
 
-    public CameraModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -56,7 +55,7 @@ public class Camera extends ImageSound{
 
     // SETTERS
 
-    public void setModel(CameraModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 

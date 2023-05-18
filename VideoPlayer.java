@@ -1,7 +1,7 @@
 public class VideoPlayer extends ImageSound{
 
-    enum VideoPlayerModels {
-        BLUERAY,
+    enum TypesOf {
+        BLURAY,
         DVD
     }
 
@@ -10,11 +10,11 @@ public class VideoPlayer extends ImageSound{
         BDRD,
         DVDRW
     }
-    private VideoPlayerModels model;
+    private TypesOf model;
     private String resolution;
     private PlaybackFormat playbackFormat;
 
-    public VideoPlayer(int availablePieces, VideoPlayerModels videoPlayerModel, String id, int modelYear,
+    public VideoPlayer(int availablePieces, TypesOf videoPlayerModel, String id, int modelYear,
                        String manufacturer, double price, double discount, String resolution,
                        PlaybackFormat playbackFormat) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
@@ -25,15 +25,14 @@ public class VideoPlayer extends ImageSound{
 
     @Override
     public String toString() {
-        return "VideoPlayer{" +
-                "model=" + model +
-                ", resolution='" + resolution + '\'' +
-                ", playbackFormat=" + playbackFormat +
-                '}';
+        return  super.toString() +
+                "\nModel: " + model +
+                "\nResolution: " + resolution +
+                "\nPlayback Format:" + playbackFormat;
     }
 
     // GETTERS
-    public VideoPlayerModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -47,7 +46,7 @@ public class VideoPlayer extends ImageSound{
     // SETTERS
 
 
-    public void setModel(VideoPlayerModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 

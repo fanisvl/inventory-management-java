@@ -1,13 +1,13 @@
 public class Washer extends HomeAppliance {
-    enum WasherModels {
+    enum TypesOf {
         STANDARD
     }
 
-    private WasherModels model;
+    private TypesOf model;
     private String capacity;
     private String rotations;
 
-    public Washer(int availablePieces, WasherModels washerModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
+    public Washer(int availablePieces, TypesOf washerModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
         super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
         this.model = washerModel;
         this.capacity = capacity;
@@ -15,11 +15,10 @@ public class Washer extends HomeAppliance {
     }
     @Override
     public String toString() {
-        return "Washer{" +
-                "model=" + model +
-                ", capacity='" + capacity + '\'' +
-                ", rotations='" + rotations + '\'' +
-                '}';
+        return super.toString() +
+                "\nModel: " + model +
+                "\nCapacity: " + capacity +
+                "\nRotations: " + rotations;
     }
 
     // GETTERS
@@ -31,7 +30,7 @@ public class Washer extends HomeAppliance {
         return rotations;
     }
 
-    public WasherModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -44,7 +43,7 @@ public class Washer extends HomeAppliance {
         this.rotations = rotations;
     }
 
-    public void setModel(WasherModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 }

@@ -1,17 +1,18 @@
 public class GamingConsole extends Product{
-    enum GamingConsoleModels {
+    enum TypesOf {
         PS4,
         PS5,
         XBOXSERIESX
     }
-    private GamingConsoleModels model;
+
+    private TypesOf model;
     private double discount;
     private String processor;
     private String graphics;
     private String sound;
     private String storage;
 
-    public GamingConsole(int availablePieces, GamingConsoleModels model, String id, int modelYear, String manufacturer, double price, double discount, String processor, String graphics, String sound, String storage) {
+    public GamingConsole(int availablePieces, TypesOf model, String id, int modelYear, String manufacturer, double price, double discount, String processor, String graphics, String sound, String storage) {
         super(availablePieces, id, modelYear, manufacturer, price);
         this.model = model;
         this.discount = discount;
@@ -23,18 +24,17 @@ public class GamingConsole extends Product{
 
     @Override
     public String toString() {
-        return "GamingConsole{" +
-                "model=" + model +
-                ", discount=" + discount +
-                ", processor='" + processor + '\'' +
-                ", graphics='" + graphics + '\'' +
-                ", sound='" + sound + '\'' +
-                ", storage='" + storage + '\'' +
-                '}';
+        return super.toString() +
+                "\nModel: " + model +
+                "\nDiscount: " + discount +
+                "\nProcessor: " + processor +
+                "\nGraphics: " + graphics +
+                "\nSound: " + sound +
+                "\nStorage: " + storage;
     }
 
     // GETTERS
-    public GamingConsoleModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -58,7 +58,7 @@ public class GamingConsole extends Product{
         return storage;
     }
     // SETTERS
-    public void setModel(GamingConsoleModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 
