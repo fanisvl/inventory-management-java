@@ -1,11 +1,10 @@
 public class Product {
 
-    // Category and type
-
-    protected int category;
-    protected String type;
-
-    // General Fields
+    enum TypesOf {
+        IMAGESOUND,
+        GAMING,
+        HOMEAPPLIANCE
+    }
 
     private int availablePieces = 0;
     private String id;
@@ -39,15 +38,6 @@ public class Product {
 
     // GETTERS
 
-
-    public int getCategory() {
-        return category;
-    }
-
-    public String getType() {
-        return type;
-    }
-
     public int getAvailablePieces() {
         return availablePieces;
     }
@@ -68,16 +58,6 @@ public class Product {
     }
 
     // SETTERS
-
-
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
     public void setAvailablePieces(int availablePieces) {
         this.availablePieces = availablePieces;
     }

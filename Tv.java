@@ -1,6 +1,6 @@
 public class Tv extends ImageSound{
 
-    enum TvModels {
+    enum TypesOf {
         LCD,
         LED,
         PLASMA
@@ -11,16 +11,15 @@ public class Tv extends ImageSound{
         Composite
     }
 
-    protected final String type = "TV";
 
-    private TvModels model;
+
+    private TypesOf model;
     private String dimensions;
     private String resolution;
     private TvPorts ports;
 
-    public Tv(int availablePieces, TvModels tvModel, String id, int modelYear, String manufacturer, double price, double discount, String dimensions, String resolution, TvPorts ports) {
+    public Tv(int availablePieces, TypesOf tvModel, String id, int modelYear, String manufacturer, double price, double discount, String dimensions, String resolution, TvPorts ports) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
-        super.type = type;
         this.model = tvModel;
         this.dimensions = dimensions;
         this.resolution = resolution;
@@ -39,7 +38,7 @@ public class Tv extends ImageSound{
 
     // GETTERS
 
-    public TvModels getModel() {
+    public TypesOf getModel() {
         return model;
     }
 
@@ -58,7 +57,7 @@ public class Tv extends ImageSound{
     // SETTERS
 
 
-    public void setModel(TvModels model) {
+    public void setModel(TypesOf model) {
         this.model = model;
     }
 

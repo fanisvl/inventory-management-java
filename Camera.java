@@ -14,7 +14,6 @@ public class Camera extends ImageSound{
 
     public Camera(int availablePieces, CameraModels cameraModel, String id, int modelYear, String manufacturer, double price, double discount, String megaPixel, boolean opticalZoom, boolean digitalZoom, String screenSize) {
         super(availablePieces, id, modelYear, manufacturer, price, discount);
-        super.type = type;
         this.model = cameraModel;
         this.megaPixel = megaPixel;
         this.opticalZoom = opticalZoom;

@@ -3,14 +3,12 @@ public class Washer extends HomeAppliance {
         STANDARD
     }
 
-    protected final String type = "Washer";
     private WasherModels model;
     private String capacity;
     private String rotations;
 
     public Washer(int availablePieces, WasherModels washerModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String capacity, String rotations) {
         super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
-        super.type = type;
         this.model = washerModel;
         this.capacity = capacity;
         this.rotations = rotations;

@@ -4,15 +4,12 @@ public class Fridge extends HomeAppliance {
         ONEDOOR,
         TWODOOR
     }
-
-    protected final String type = "Fridge";
     private FridgeModels model;
     private String maintenanceStorage;
     private String freezerStorage;
 
     public Fridge(int availablePieces, FridgeModels fridgeModel, String id, int modelYear, String manufacturer, double price, double discount, String energyClass, String maintenanceStorage, String freezerStorage) {
         super(availablePieces, id, modelYear, manufacturer, price, discount, energyClass);
-        super.type = type;
         this.model = fridgeModel;
         this.maintenanceStorage = maintenanceStorage;
         this.freezerStorage = freezerStorage;

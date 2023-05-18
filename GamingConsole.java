@@ -4,9 +4,6 @@ public class GamingConsole extends Product{
         PS5,
         XBOXSERIESX
     }
-
-    protected final int category = 2;
-    protected final String type = "Console";
     private GamingConsoleModels model;
     private double discount;
     private String processor;
@@ -16,8 +13,6 @@ public class GamingConsole extends Product{
 
     public GamingConsole(int availablePieces, GamingConsoleModels model, String id, int modelYear, String manufacturer, double price, double discount, String processor, String graphics, String sound, String storage) {
         super(availablePieces, id, modelYear, manufacturer, price);
-        super.category = category;
-        super.type = type;
         this.model = model;
         this.discount = discount;
         this.processor = processor;

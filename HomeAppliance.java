@@ -1,12 +1,15 @@
 public class HomeAppliance extends Product {
+
+    enum HomeApplianceTypes {
+        FRIDGE,
+        WASHER
+    }
     private double discount;
     private String energyClass;
 
-    protected final int category = 3;
 
     public HomeAppliance(int availablePieces, String id, int modelYear, String manufacturer, double price, double discount, String energyClass) {
         super(availablePieces, id, modelYear, manufacturer, price);
-        super.category = category;
         this.discount = discount;
         this.energyClass = energyClass;
     }
@@ -20,6 +23,8 @@ public class HomeAppliance extends Product {
     }
 
     // GETTERS
+
+
     public double getDiscount() {
         return discount;
     }

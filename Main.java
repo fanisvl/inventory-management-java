@@ -18,10 +18,8 @@ public class Main {
             System.out.println("3. Sales");
             System.out.println("0. Exit");
             System.out.print("Enter Selection: ");
-
             int choice = input.nextInt();
             input.nextLine();
-
             switch(choice) {
                 case 1 -> {
                     System.out.println("\nAVAILABLE PRODUCTS\n");
@@ -45,9 +43,9 @@ public class Main {
     public static void initAvailableProducts(ArrayList<Product> availableProducts) {
         // Creates availableProducts ArrayList & 2 models for each type, adds them to ArrayList
         // Create & add Tvs
-        Tv lcd_tv = new Tv(32, Tv.TvModels.LCD, "a321", 2017, "LG", 299.99,
+        Tv lcd_tv = new Tv(32, Tv.TypesOf.LCD, "a321", 2017, "LG", 299.99,
                 15, "42'", "1440p", Tv.TvPorts.HDMI);
-        Tv led_tv = new Tv(12, Tv.TvModels.LED, "a321", 2015, "LG", 199.99,
+        Tv led_tv = new Tv(12, Tv.TypesOf.LED, "a321", 2015, "LG", 199.99,
                 10, "42'", "1080p", Tv.TvPorts.DVI);
         availableProducts.add(lcd_tv);
         availableProducts.add(led_tv);
@@ -84,50 +82,58 @@ public class Main {
         // Create & add Washers
         Washer washer = new Washer(14, Washer.WasherModels.STANDARD, "f42", 2019,
                 "LG", 199, 10, "A", "10kg", "150");
-        Washer washer2 = new Washer(4, Washer.WasherModels.STANDARD, "f99", 2021,
-                "LG", 399, 10, "A", "30kg", "300");
         availableProducts.add(washer);
-        availableProducts.add(washer2);
     }
-
 
     public static void showAvailableProducts(ArrayList<Product> availableProducts) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Image & Sound");
-        System.out.println("2. Gaming");
-        System.out.println("3. House Appliances");
-        System.out.println("Select category: ");
+        int option = 1;
+        for (Product.TypesOf category : Product.TypesOf.values()) {
+            System.out.print(option++ + ". ");
+            System.out.println(category);
+        }
+        System.out.print("Select category: ");
         int category = scanner.nextInt();
-        System.out.println(availableProducts + "\n\n"); // for testing
+        switch (category) {
+            case 1 -> {
+                option = 1;
+                for (ImageSound.TypesOf types : ImageSound.TypesOf.values()) {
+                    System.out.print(option++ + ". ");
+                    System.out.println(types);
+                }
 
-        // Print picked category's types
-        // We can do that by removing items that don't belong to the category picked
-        // and then printing every models type
-        // Problem: we have 2 models for each type so types will be printed twice)
-        // Solution: Create a type list
-        // Must add category field to every model
+                System.out.print("Select type: ");
+                int type = scanner.nextInt();
+                switch  (type) {
+                    case 1 -> {
+                        option = 1;
+                        for (Tv.TypesOf models : Tv.TypesOf.values()) {
+                            System.out.print(option++ + ". ");
+                            System.out.println(models);
+                        }
 
-        // REMOVE IRRELEVANT CATEGORIES
-        for (Iterator<Product> iter = availableProducts.iterator(); iter.hasNext();) {
-            Product product = iter.next();
-            if (product.getCategory() != category) {
-                iter.remove();
+                        System.out.print("Select model: ");
+                        int model = scanner.nextInt();
+                        switch (model) {
+                            case 1 -> {
+                                for(Product product : availableProducts) {
+                                    if( (product instanceof Tv) && ((Tv)product).getModel() == Tv.TypesOf.LCD) {
+                                        System.out.println(product);
+                                        System.out.println(product.getAvailablePieces());
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+            default -> {
+                System.out.println("Invalid option");
             }
         }
-
-        System.out.println(availableProducts + "\n\n"); // for testing
-
-//         Create a new arrayList of types
-//         Loop through new availableProducts, if type not in typeList add product type to list
-//         Print types
-//         Must add type field & getType to every model
-//        ArrayList<String> types = new ArrayList<>();
-//        for (Product product : availableProducts) {
-//            if (product.getType() != )
 //        }
-
-        System.out.print("Select type: ");
-        int type = scanner.nextInt();
 
     }
 
