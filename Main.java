@@ -86,7 +86,7 @@ public class Main {
         availableProducts.add(washer);
     }
 
-    public static void showAvailableProducts(ArrayList<Product> availableProducts) {
+    public static void showAvailableProducts(ArrayList<Product> availableProducts, ArrayList<Sale> saleList, ArrayList<Order> orderList) {
         Scanner scanner = new Scanner(System.in);
         int option = 1;
         for (Product.TypesOf category : Product.TypesOf.values()) {
@@ -123,31 +123,7 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof Tv) && ((Tv)product).getModel() == Tv.TypesOf.LCD) {
                                         System.out.println(product);
-                                        if(product.getAvailablePieces() > 0) {
-                                            System.out.println("\nDo you want to purchase the product?\n");
-                                            System.out.println("1. Yes");
-                                            System.out.println("2. No");
-                                            int choice = scanner.nextInt();
-                                            if (choice == 1) {
-                                                // TODO PURCHASE FUNCTION
-                                            }
-                                            else {
-                                                break;
-                                            }
-                                        }
-                                        else {
-                                            System.out.println("Product out of stock");
-                                            System.out.println("\nDo you want to order the product?\n");
-                                            System.out.println("1. Yes");
-                                            System.out.println("2. No");
-                                            int choice = scanner.nextInt();
-                                            if (choice == 1) {
-                                                // TODO ORDER FUNCTION
-                                            }
-                                            else {
-                                                break;
-                                            }
-                                        }
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -155,6 +131,7 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof Tv) && ((Tv)product).getModel() == Tv.TypesOf.LED) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -162,6 +139,7 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof Tv) && ((Tv)product).getModel() == Tv.TypesOf.PLASMA) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -182,6 +160,7 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof VideoPlayer) && ((VideoPlayer)product).getModel() == VideoPlayer.TypesOf.BLURAY) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -189,6 +168,7 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof VideoPlayer) && ((VideoPlayer)product).getModel() == VideoPlayer.TypesOf.DVD) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -210,6 +190,7 @@ public class Main {
                                 for (Product product : availableProducts) {
                                     if ((product instanceof Camera) && ((Camera) product).getModel() == Camera.TypesOf.COMPACT) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -217,6 +198,7 @@ public class Main {
                                 for (Product product : availableProducts) {
                                     if ((product instanceof Camera) && ((Camera) product).getModel() == Camera.TypesOf.DSLR) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -224,6 +206,7 @@ public class Main {
                                 for (Product product : availableProducts) {
                                     if ((product instanceof Camera) && ((Camera) product).getModel() == Camera.TypesOf.ACTION) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -246,6 +229,7 @@ public class Main {
                         for (Product product : availableProducts) {
                             if ((product instanceof GamingConsole) && ((GamingConsole) product).getModel() == GamingConsole.TypesOf.PS4) {
                                 System.out.println(product);
+                                saleOrOrder(product, saleList, orderList);
                             }
                         }
                     }
@@ -253,6 +237,7 @@ public class Main {
                         for (Product product : availableProducts) {
                             if ((product instanceof GamingConsole) && ((GamingConsole) product).getModel() == GamingConsole.TypesOf.PS5) {
                                 System.out.println(product);
+                                saleOrOrder(product, saleList, orderList);
                             }
                         }
                     }
@@ -260,6 +245,7 @@ public class Main {
                         for (Product product : availableProducts) {
                             if ((product instanceof GamingConsole) && ((GamingConsole) product).getModel() == GamingConsole.TypesOf.XBOXSERIESX) {
                                 System.out.println(product);
+                                saleOrOrder(product, saleList, orderList);
                             }
                         }
                     }
@@ -290,6 +276,7 @@ public class Main {
                                 for (Product product : availableProducts) {
                                     if ((product instanceof Fridge) && ((Fridge) product).getModel() == Fridge.TypesOf.ONEDOOR) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -297,6 +284,7 @@ public class Main {
                                 for (Product product : availableProducts) {
                                     if ((product instanceof Fridge) && ((Fridge) product).getModel() == Fridge.TypesOf.TWODOOR) {
                                         System.out.println(product);
+                                        saleOrOrder(product, saleList, orderList);
                                     }
                                 }
                             }
@@ -306,6 +294,7 @@ public class Main {
                         for (Product product : availableProducts) {
                             if ((product instanceof Washer) && ((Washer) product).getModel() == Washer.TypesOf.STANDARD) {
                                 System.out.println(product);
+                                saleOrOrder(product, saleList, orderList);
                             }
                         }
                     }
@@ -317,7 +306,10 @@ public class Main {
         }
     }
 
-    public static void saleOrOrder(Product product) {
+    public static void saleOrOrder(Product product, ArrayList<Sale> saleList, ArrayList<Order> orderList) {
+        // Check if a product is available
+        // If product = available -> ask to sell -> If 'yes' call newSale
+        // If product = unavailable -> ask to order -> If 'yes' call newOrder
         Scanner scanner = new Scanner(System.in);
         if(product.getAvailablePieces() > 0) {
             System.out.println("\nDo you want to purchase the product?\n");
@@ -325,7 +317,7 @@ public class Main {
             System.out.println("2. No");
             int choice = scanner.nextInt();
             if (choice == 1) {
-                // TODO SALE FUNCTION
+                newSale(product,saleList);
             }
         }
         else {
@@ -335,13 +327,16 @@ public class Main {
             System.out.println("2. No");
             int choice = scanner.nextInt();
             if (choice == 1) {
-                // TODO ORDER FUNCTION
+                newOrder(product, orderList);
             }
         }
     }
 
-    public static void newSale(Product product, ArrayList saleList) {
-        //Product product, String fullName, int phone, LocalDate date, double finalCost
+    public static void newSale(Product product, ArrayList<Sale> saleList) {
+        // Get the information needed for a new sale
+        // Create a new sale
+        // Add it to salesList
+        // Update availablePieces of product
         Scanner input = new Scanner(System.in);
 
         System.out.print("Full name: ");
@@ -364,17 +359,19 @@ public class Main {
         System.out.println("Sale complete!");
 
     }
-    public static void newOrder(Product product) {
-//        Product product, String fullName, int phone, LocalDate date,
-//        double finalCost, LocalDate orderArrivalDate, boolean orderExecuted
+    public static void newOrder(Product product, ArrayList<Order> orderList) {
+        // Get the information needed for a new order
+        // Create a new order
+        // Add it to ordersList
         Scanner input = new Scanner(System.in);
 
         System.out.print("Full name: ");
         String fullName = input.nextLine();
         System.out.print("Phone: ");
         int phone = input.nextInt();
+        //
         LocalDate date = LocalDate.now();
-        System.out.println("Sale date: " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        System.out.println("Order date: " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         double price = product.getPrice();
         System.out.println("Price: " + price);
         double discount = product.discount;
@@ -382,11 +379,21 @@ public class Main {
         double finalCost = price - discount*price;
         System.out.println("Final cost: " + finalCost);
 
+        System.out.print("Estimated Order Arrival Date: ");
+        LocalDate orderArrivalDateInput = LocalDate.parse(input.nextLine());
 
+        while (orderArrivalDateInput.isBefore(LocalDate.now())) {
+            System.out.println("Estimated Arrival Date must be after " + LocalDate.now());
+            System.out.print("Estimated Order Arrival Date: ");
+            orderArrivalDateInput = LocalDate.parse(input.nextLine());
+        }
 
-        Sale sale = new Sale(product, fullName, phone, date, finalCost);
+        LocalDate orderArrivalDate = orderArrivalDateInput;
 
-        product.setAvailablePieces(product.getAvailablePieces() - 1);
-        System.out.println("Sale complete!");
+        boolean orderExecuted = false;
+
+        Order order = new Order(product, fullName, phone, date, finalCost, orderArrivalDate, orderExecuted); // create order
+        orderList.add(order); // add order to orderList
+        System.out.println("Order submitted!");
     }
 }
