@@ -10,6 +10,13 @@ public class Order extends Sale {
         this.orderExecuted = orderExecuted;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nOrder Arrival Date: " + OrderArrivalDate +
+                "\nOrder Executed: " + orderExecuted;
+    }
+
     // GETTERS
 
     public LocalDate getOrderArrivalDate() {

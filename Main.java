@@ -8,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Product> availableProducts = new ArrayList<>();
         initAvailableProducts(availableProducts);
-        ArrayList<Order> ordersList = new ArrayList<>();
         ArrayList<Sale> salesList = new ArrayList<>();
+        ArrayList<Order> ordersList = new ArrayList<>();
+
         // MENU
         Scanner input = new Scanner(System.in);
         while (true) {
@@ -24,10 +25,11 @@ public class Main {
             switch(choice) {
                 case 1 -> {
                     System.out.println("\nAVAILABLE PRODUCTS\n");
-                    showAvailableProducts(availableProducts);
+                    showAvailableProducts(availableProducts, salesList, ordersList);
                 }
                 case 2 -> {
-                    System.out.println("ORDERS");
+                    System.out.println("\nORDERS\n");
+                    showOrders(ordersList);
                 }
                 case 3 -> {
                     System.out.println("SALES");
@@ -44,8 +46,8 @@ public class Main {
     public static void initAvailableProducts(ArrayList<Product> availableProducts) {
         // Creates availableProducts ArrayList & 2 models for each type, adds them to ArrayList
         // Create & add Tvs
-        Tv lcd_tv = new Tv(32, Tv.TypesOf.LCD, "a321", 2017, "LG", 299.99,
-                15, "42'", "1440p", Tv.TvPorts.HDMI);
+        Tv lcd_tv = new Tv(0, Tv.TypesOf.LCD, "a321", 2017, "LG", 299.99,
+                15.0, "42'", "1440p", Tv.TvPorts.HDMI);
         Tv led_tv = new Tv(12, Tv.TypesOf.LED, "a321", 2015, "LG", 199.99,
                 10, "42'", "1080p", Tv.TvPorts.DVI);
         availableProducts.add(lcd_tv);
@@ -300,9 +302,7 @@ public class Main {
                     }
                 }
             }
-            default -> {
-                System.out.println("Invalid option");
-            }
+            default -> System.out.println("\nInvalid option\n");
         }
     }
 
@@ -312,9 +312,9 @@ public class Main {
         // If product = unavailable -> ask to order -> If 'yes' call newOrder
         Scanner scanner = new Scanner(System.in);
         if(product.getAvailablePieces() > 0) {
-            System.out.println("\nDo you want to purchase the product?\n");
             System.out.println("1. Yes");
             System.out.println("2. No");
+            System.out.print("\nDo you want to purchase the product? ");
             int choice = scanner.nextInt();
             if (choice == 1) {
                 newSale(product,saleList);
@@ -322,9 +322,9 @@ public class Main {
         }
         else {
             System.out.println("Product out of stock");
-            System.out.println("\nDo you want to order the product?\n");
             System.out.println("1. Yes");
             System.out.println("2. No");
+            System.out.print("\nDo you want to order the product? ");
             int choice = scanner.nextInt();
             if (choice == 1) {
                 newOrder(product, orderList);
@@ -349,9 +349,9 @@ public class Main {
         double price = product.getPrice();
         System.out.println("Price: " + price);
         double discount = product.discount;
-        System.out.println("Discount: " + discount*100 + "%");
-        double finalCost = price - discount*price;
-        System.out.println("Final cost: " + finalCost);
+        System.out.println("Discount: " + discount + "%");
+        double finalCost = (price - (discount*0.01*price));
+        System.out.printf("%s%.2f%s%n", "Final cost: ", finalCost, "EUR");
 
         Sale sale = new Sale(product, fullName, phone, date, finalCost); // create sale
         saleList.add(sale); // add sale to salesList
@@ -370,30 +370,56 @@ public class Main {
         System.out.print("Phone: ");
         int phone = input.nextInt();
         //
-        LocalDate date = LocalDate.now();
-        System.out.println("Order date: " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("Order date: " + currentDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         double price = product.getPrice();
         System.out.println("Price: " + price);
         double discount = product.discount;
-        System.out.println("Discount: " + discount*100 + "%");
-        double finalCost = price - discount*price;
-        System.out.println("Final cost: " + finalCost);
+        System.out.println("Discount: " + discount + "%");
+        double finalCost = (price - (discount*0.01*price));
+        System.out.printf("%s%.2f%s%n", "Final cost: ", finalCost, "EUR");
 
-        System.out.print("Estimated Order Arrival Date: ");
-        LocalDate orderArrivalDateInput = LocalDate.parse(input.nextLine());
+        // Get orderArrivalDate
+        System.out.print("Estimated Order Arrival Date (dd-MM-yyyy): ");
+        String inputArrivalDate = input.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate orderArrivalDate = null;
 
-        while (orderArrivalDateInput.isBefore(LocalDate.now())) {
-            System.out.println("Estimated Arrival Date must be after " + LocalDate.now());
-            System.out.print("Estimated Order Arrival Date: ");
-            orderArrivalDateInput = LocalDate.parse(input.nextLine());
+        try {
+            orderArrivalDate = LocalDate.parse(inputArrivalDate, formatter);
+            System.out.println("Entered date: " + orderArrivalDate);
+
+            do {
+                System.out.print("Invalid date. Please enter a future date (dd-MM-yyyy): ");
+                String userInput = input.nextLine();
+
+                try {
+                    LocalDate date = LocalDate.parse(userInput, formatter);
+                    System.out.println("Entered date: " + date);
+                    orderArrivalDate = date; // Update the orderArrivalDate
+                } catch (Exception e) {
+                    System.out.println("Invalid date format. Please enter a date in dd-MM-yyyy format.");
+                }
+            } while (orderArrivalDate.isBefore(LocalDate.now()));
+        } catch (Exception e) {
+            System.out.println("Invalid date format. Please enter a date in dd-MM-yyyy format.");
         }
 
-        LocalDate orderArrivalDate = orderArrivalDateInput;
+
+
 
         boolean orderExecuted = false;
 
-        Order order = new Order(product, fullName, phone, date, finalCost, orderArrivalDate, orderExecuted); // create order
+        // create order
+        Order order = new Order(product, fullName, phone, currentDate, finalCost, orderArrivalDate, orderExecuted);
         orderList.add(order); // add order to orderList
         System.out.println("Order submitted!");
     }
+
+    public static void showOrders(ArrayList<Order> ordersList) {
+        for (Order order : ordersList) {
+            System.out.println(order);
+        }
+    }
+
 }

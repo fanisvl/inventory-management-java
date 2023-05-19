@@ -20,6 +20,16 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
+    @Override
+    public String toString() {
+        return "\nId: " + id +
+                "\nProduct: " + product +
+                "\nFullName: " + fullName +
+                "\nPhone: " + phone +
+                "\nDate: " + date +
+                "\nFinal Cost: " + finalCost;
+    }
+
     // GETTERS
 
     public int getId() {
