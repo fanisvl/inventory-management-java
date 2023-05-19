@@ -1,14 +1,15 @@
-import java.awt.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Product> availableProducts = new ArrayList<>();
         initAvailableProducts(availableProducts);
-        ArrayList<Order> orders = new ArrayList<>();
-        ArrayList<Sale> sales = new ArrayList<>();
+        ArrayList<Order> ordersList = new ArrayList<>();
+        ArrayList<Sale> salesList = new ArrayList<>();
         // MENU
         Scanner input = new Scanner(System.in);
         while (true) {
@@ -92,7 +93,7 @@ public class Main {
             System.out.print(option++ + ". ");
             System.out.println(category);
         }
-        System.out.print("Select category: ");
+        System.out.print("\nSelect category: ");
         int category = scanner.nextInt();
         switch (category) {
             case 1 -> { // Image Sound Category
@@ -103,7 +104,7 @@ public class Main {
                     System.out.print(option++ + ". ");
                     System.out.println(types);
                 }
-                System.out.print("Select type: ");
+                System.out.print("\nSelect type: ");
                 int type = scanner.nextInt();
                 //
 
@@ -114,7 +115,7 @@ public class Main {
                             System.out.print(option++ + ". ");
                             System.out.println(models);
                         }
-                        System.out.print("Select model: ");
+                        System.out.print("\nSelect model: ");
                         int model = scanner.nextInt();
 
                         switch (model) {
@@ -122,6 +123,31 @@ public class Main {
                                 for(Product product : availableProducts) {
                                     if( (product instanceof Tv) && ((Tv)product).getModel() == Tv.TypesOf.LCD) {
                                         System.out.println(product);
+                                        if(product.getAvailablePieces() > 0) {
+                                            System.out.println("\nDo you want to purchase the product?\n");
+                                            System.out.println("1. Yes");
+                                            System.out.println("2. No");
+                                            int choice = scanner.nextInt();
+                                            if (choice == 1) {
+                                                // TODO PURCHASE FUNCTION
+                                            }
+                                            else {
+                                                break;
+                                            }
+                                        }
+                                        else {
+                                            System.out.println("Product out of stock");
+                                            System.out.println("\nDo you want to order the product?\n");
+                                            System.out.println("1. Yes");
+                                            System.out.println("2. No");
+                                            int choice = scanner.nextInt();
+                                            if (choice == 1) {
+                                                // TODO ORDER FUNCTION
+                                            }
+                                            else {
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -148,7 +174,7 @@ public class Main {
                             System.out.print(option++ + ". ");
                             System.out.println(models);
                         }
-                        System.out.print("Select model: ");
+                        System.out.print("\nSelect model: ");
                         int model = scanner.nextInt();
 
                         switch(model) {
@@ -175,7 +201,7 @@ public class Main {
                             System.out.print(option++ + ". ");
                             System.out.println(models);
                         }
-                        System.out.print("Select model: ");
+                        System.out.print("\nSelect model: ");
                         int model = scanner.nextInt();
 
                         switch (model) {
@@ -213,7 +239,7 @@ public class Main {
                     System.out.print(option++ + ". ");
                     System.out.println(models);
                 }
-                System.out.print("Select model: ");
+                System.out.print("\nSelect model: ");
                 int model = scanner.nextInt();
                 switch (model) {
                     case 1 -> { // PS4 Model
@@ -243,11 +269,11 @@ public class Main {
 
             case 3 -> { // Home Appliances Category
                 option = 1;
-                for (ImageSound.TypesOf types : ImageSound.TypesOf.values()) {
+                for (HomeAppliance.TypesOf types : HomeAppliance.TypesOf.values()) {
                     System.out.print(option++ + ". ");
                     System.out.println(types);
                 }
-                System.out.print("Select type: ");
+                System.out.print("\nSelect type: ");
                 int type = scanner.nextInt();
 
                 switch(type) {
@@ -257,7 +283,7 @@ public class Main {
                             System.out.print(option++ + ". ");
                             System.out.println(models);
                         }
-                        System.out.print("Select model: ");
+                        System.out.print("\nSelect model: ");
                         int model = scanner.nextInt();
                         switch(model) {
                             case 1 -> { // 1 door model
@@ -291,6 +317,76 @@ public class Main {
         }
     }
 
+    public static void saleOrOrder(Product product) {
+        Scanner scanner = new Scanner(System.in);
+        if(product.getAvailablePieces() > 0) {
+            System.out.println("\nDo you want to purchase the product?\n");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                // TODO SALE FUNCTION
+            }
+        }
+        else {
+            System.out.println("Product out of stock");
+            System.out.println("\nDo you want to order the product?\n");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                // TODO ORDER FUNCTION
+            }
+        }
+    }
+
+    public static void newSale(Product product, ArrayList saleList) {
+        //Product product, String fullName, int phone, LocalDate date, double finalCost
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Full name: ");
+        String fullName = input.nextLine();
+        System.out.print("Phone: ");
+        int phone = input.nextInt();
+        //
+        LocalDate date = LocalDate.now();
+        System.out.println("Sale date: " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        double price = product.getPrice();
+        System.out.println("Price: " + price);
+        double discount = product.discount;
+        System.out.println("Discount: " + discount*100 + "%");
+        double finalCost = price - discount*price;
+        System.out.println("Final cost: " + finalCost);
+
+        Sale sale = new Sale(product, fullName, phone, date, finalCost); // create sale
+        saleList.add(sale); // add sale to salesList
+        product.setAvailablePieces(product.getAvailablePieces() - 1); // update available pieces
+        System.out.println("Sale complete!");
+
+    }
+    public static void newOrder(Product product) {
+//        Product product, String fullName, int phone, LocalDate date,
+//        double finalCost, LocalDate orderArrivalDate, boolean orderExecuted
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Full name: ");
+        String fullName = input.nextLine();
+        System.out.print("Phone: ");
+        int phone = input.nextInt();
+        LocalDate date = LocalDate.now();
+        System.out.println("Sale date: " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        double price = product.getPrice();
+        System.out.println("Price: " + price);
+        double discount = product.discount;
+        System.out.println("Discount: " + discount*100 + "%");
+        double finalCost = price - discount*price;
+        System.out.println("Final cost: " + finalCost);
 
 
+
+        Sale sale = new Sale(product, fullName, phone, date, finalCost);
+
+        product.setAvailablePieces(product.getAvailablePieces() - 1);
+        System.out.println("Sale complete!");
+    }
 }

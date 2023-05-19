@@ -12,10 +12,7 @@ public class Product {
     private String manufacturer;
     private double price;
 
-    // for quick testing
-    public Product(int availablePieces) {
-        this(availablePieces,  "123", 2017, "LG", 399.99);
-    }
+    protected double discount; // Saves discount set by Category, to be accessible by Product for availableProductsList
 
     public Product(int availablePieces, String id, int modelYear, String manufacturer, double price) {
         this.availablePieces = availablePieces;
