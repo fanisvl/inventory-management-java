@@ -16,6 +16,7 @@ public class GamingConsole extends Product{
         super(availablePieces, id, modelYear, manufacturer, price);
         this.model = model;
         this.discount = discount;
+        super.discount = discount;
         this.processor = processor;
         this.graphics = graphics;
         this.sound = sound;

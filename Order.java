@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Order extends Sale {
     private LocalDate OrderArrivalDate;
     private boolean orderExecuted;
@@ -13,7 +15,7 @@ public class Order extends Sale {
     @Override
     public String toString() {
         return super.toString() +
-                "\nOrder Arrival Date: " + OrderArrivalDate +
+                "\nOrder Arrival Date: " + OrderArrivalDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) +
                 "\nOrder Executed: " + orderExecuted;
     }
 

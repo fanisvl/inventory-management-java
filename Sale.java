@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Sale {
 
@@ -22,13 +23,11 @@ public class Sale {
 
     @Override
     public String toString() {
-        return "\nId: " + id +
-                "\nProduct: " + product +
-                "\nFullName: " + fullName +
-                "\nPhone: " + phone +
-                "\nDate: " + date +
-                "\nFinal Cost: " + finalCost;
+        return String.format("\nId: %s\nProduct: %s\nFullName: %s\nPhone: %s\nDate: %s\nFinal Cost: %.2f",
+                id, product.getClass().getName(), fullName, phone,
+                date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), finalCost);
     }
+
 
     // GETTERS
 

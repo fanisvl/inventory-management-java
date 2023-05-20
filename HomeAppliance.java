@@ -11,6 +11,7 @@ public class HomeAppliance extends Product {
     public HomeAppliance(int availablePieces, String id, int modelYear, String manufacturer, double price, double discount, String energyClass) {
         super(availablePieces, id, modelYear, manufacturer, price);
         this.discount = discount;
+        super.discount = discount;
         this.energyClass = energyClass;
     }
 
